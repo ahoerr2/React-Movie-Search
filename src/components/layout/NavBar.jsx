@@ -10,7 +10,7 @@ export default class NavBar extends Component {
         <Navbar className="navbar" variant="dark">
           <Navbar.Brand href="#home">Movie Search</Navbar.Brand>
           <Nav className="mr-auto">
-            <Nav.Link href="#home">
+            <Nav.Link href="https://github.com/ahoerr2/React-Movie-Search" target="_blank">
             <IconContext.Provider value={{ color: "white", size: "1.20em", className: "global-class-name" }}>
                 <FaGithubSquare/>
             </IconContext.Provider>
