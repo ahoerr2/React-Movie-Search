@@ -6,13 +6,13 @@ export default class SearchRender extends Component {
     constructor(props){
         super(props);
         this.state = {
-            Artist: ''
+            Movie: ''
         }
-        this.changeArtist = this.changeArtist.bind(this);
+        this.changeMovie = this.changeMovie.bind(this);
     }
-    changeArtist(newArtist){
+    changeMovie(newMovie){
         this.setState({
-            Artist: newArtist
+            Movie: newMovie
         })
     }
     render() {
@@ -22,8 +22,8 @@ export default class SearchRender extends Component {
                 <div className="searchContent">
                 <h1>Movie Title Database</h1>
                 <h4>By Alex Hoerr</h4>
-                <SearchBar onSearch={this.changeArtist}/>
-                <h5>Artist: {this.state.Artist}</h5>
+                <SearchBar onSearch={this.changeMovie}/>
+                <h5>Movie: {this.state.Movie}</h5>
                 </div>
             </div>
         )
