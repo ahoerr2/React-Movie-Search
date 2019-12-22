@@ -7,7 +7,7 @@ export default class NavBar extends Component {
   render() {
     return (
       <div>
-        <Navbar className="navbar" variant="dark">
+        <Navbar className="navbar" variant="dark" style={{backgroundColor: 	"#4B0082"}}>
           <Navbar.Brand href="#home">Movie Search</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link
