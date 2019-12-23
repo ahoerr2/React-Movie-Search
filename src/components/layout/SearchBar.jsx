@@ -18,8 +18,15 @@ export default class SearchBar extends Component {
         const API_KEY = process.env.REACT_APP_API_KEY;
         const API_LINK = process.env.REACT_APP_API_LINK;
         const API_SEARCH = `${API_LINK}apikey=${API_KEY}&type=movie&s=${this.state.qwery}`;
-        console.log(API_SEARCH);
-        this.props.onSearch(this.state.qwery);
+        fetch(API_SEARCH,{
+            method: 'Get'
+        })
+        .then(Response => Response.json())
+        .then(json => {
+            const title = json.Search[0];
+            this.props.onSearch(title);
+        });
+        
     }
     render() {
         return (
