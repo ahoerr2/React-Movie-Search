@@ -15,10 +15,9 @@ export default class SearchBar extends Component {
     }
 
     search(){
-        const API_KEY = "88961100";
-        const API_LINK = "http://www.omdbapi.com/?";
+        const API_KEY = process.env.REACT_APP_API_KEY;
+        const API_LINK = process.env.REACT_APP_API_LINK;
         const API_SEARCH = `${API_LINK}apikey=${API_KEY}&type=movie&s=${this.state.qwery}`;
-        console.log(API_SEARCH);
         fetch(API_SEARCH,{
             method: 'Get'
         })
