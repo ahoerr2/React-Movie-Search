@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import * as url from '../images/nf.jpg';
 export default class Profile extends Component {
   render() {
-    let movie = {Title: 'Title Unavaliable', Year: 'Year Unavaliable', imdbID: 'ID Not Found',Poster:url.default}
+    let movie = {title: 'Title Unavaliable', year: 'Year Unavaliable', metascore: 'Score Not Found',poster:url.default}
     
     if (this.props.Movie !== null) {
         movie = this.props.Movie;
@@ -10,19 +10,19 @@ export default class Profile extends Component {
 
     const title =
       movie.Title !== null
-        ? movie.Title
+        ? movie.title
         : "Movie Title";
     const year =
-      movie.Year !== undefined
-        ? "Release Year: " + movie.Year
+      movie.year !== undefined
+        ? "Release Year: " + movie.year
         : "Movie Year";
     const id =
-      movie.imdbID !== undefined
-        ? "ID: " + movie.imdbID
-        : "Movie ID";
+      movie.metascore !== undefined
+        ? "Metascore: " + movie.metascore
+        : "Metascore";
         const poster =
-        movie.Poster !== undefined
-          ? movie.Poster
+        movie.poster !== undefined
+          ? movie.poster
           : url.default;
     
     return (

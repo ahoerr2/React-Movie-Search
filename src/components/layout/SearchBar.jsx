@@ -15,11 +15,8 @@ export default class SearchBar extends Component {
     }
 
     search(){
-        const qwery = this.state.qwery.replace(/ /g,"_");
-        const API_KEY = process.env.REACT_APP_API_KEY;
-        const API_LINK = process.env.REACT_APP_API_LINK;
-        const API_SEARCH = `${API_LINK}apikey=${API_KEY}&type=movie&s=${qwery}`;
-        this.props.onSearch(API_SEARCH);
+
+        this.props.onSearch(this.state.qwery);
     }
     render() {
         return (
