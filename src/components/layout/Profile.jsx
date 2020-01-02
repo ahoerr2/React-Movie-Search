@@ -1,27 +1,49 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import * as url from '../images/nf.jpg';
 export default class Profile extends Component {
-    render() {
-        //let movie = {title: '', year: '', id: ''};
-        console.log(this.props.Movie);
-        
-        
-        const title = this.props.Movie.Title !== undefined ? this.props.Movie.Title : "Movie Title";
-        const year = this.props.Movie.Year !== undefined ? this.props.Movie.Year : "Movie Year";
-        const id = this.props.Movie.imdbID !== undefined ? this.props.Movie.imdbID : "Movie ID";
-        return (
-            <div>
-                <h6>{title}</h6>
-                <h6>{year}</h6>
-                <h6>{id}</h6>
-                <div className="Poster">
-                    <img 
-                    className="Poster"
-                    alt="No Poster Found"
-                    src={this.props.Movie.Poster}
-                    />
-                    
-                </div>
-            </div>
-        )
+  render() {
+    let movie = {Title: 'Title Unavaliable', Year: 'Year Unavaliable', imdbID: 'ID Not Found',Poster:url.default}
+    
+    if (this.props.Movie !== null) {
+        movie = this.props.Movie;
     }
+
+    const title =
+      movie.Title !== null
+        ? movie.Title
+        : "Movie Title";
+    const year =
+      movie.Year !== undefined
+        ? "Release Year: " + movie.Year
+        : "Movie Year";
+    const id =
+      movie.imdbID !== undefined
+        ? "ID: " + movie.imdbID
+        : "Movie ID";
+        const poster =
+        movie.Poster !== undefined
+          ? movie.Poster
+          : url.default;
+    
+    return (
+      <div className="profile">
+        <img
+          className="profile-img"
+          alt="error"
+          src={poster}
+        />
+        <div className="profile-atb">
+          <div className="profile-title">
+            <h6>{title}</h6>
+          </div>
+          <div className="profile-year">
+            <h6>{year}</h6>
+          </div>
+          <div className="profile-id">
+            <h6>{id}</h6>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }

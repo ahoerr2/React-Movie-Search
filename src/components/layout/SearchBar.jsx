@@ -15,38 +15,35 @@ export default class SearchBar extends Component {
     }
 
     search(){
+        const qwery = this.state.qwery.replace(/ /g,"_");
         const API_KEY = process.env.REACT_APP_API_KEY;
         const API_LINK = process.env.REACT_APP_API_LINK;
-        const API_SEARCH = `${API_LINK}apikey=${API_KEY}&type=movie&s=${this.state.qwery}`;
-        fetch(API_SEARCH,{
-            method: 'Get'
-        })
-        .then(Response => Response.json())
-        .then(json => {
-            const title = json.Search[0];
-            this.props.onSearch(title);
-        });
-        
+        const API_SEARCH = `${API_LINK}apikey=${API_KEY}&type=movie&s=${qwery}`;
+        this.props.onSearch(API_SEARCH);
     }
     render() {
         return (
             <div>
                 <Form inline variant="light" style={{justifyContent: "center"}}>
-                    <Form.Group style={{justifyContent: "center", width: "85%"}}>
-                        <InputGroup style={{width: "85%"}}>
+                    <Form.Group style={{justifyContent: "center", width: "85%"}} >
+                        <InputGroup style={{width: "85%"}} >
                             <Form.Control 
                             variant="light" 
                             type="search" 
                             placeholder="Enter Movie Title" 
-                            onChange={event => {this.setState({qwery: event.target.value})}}
+                            onChange={event => {
+                                
+                                this.setState({qwery: event.target.value})
+                            }}
                             onKeyPress={event => {
                                 if(event.key === 'Enter'){
+                                    event.preventDefault();
                                     this.search()
                                 }
                             }}
                             />
                             <InputGroup.Append>
-                                <SearchButton onClick={this.search}/>
+                                <SearchButton onClick={this.search} disabled={this.props.loading}/>
                             </InputGroup.Append>
                         </InputGroup>
                     </Form.Group>
