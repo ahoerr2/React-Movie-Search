@@ -15,12 +15,6 @@ export default class SearchRender extends Component {
     };
     this.changeMovie = this.changeMovie.bind(this);
   }
-  buildLink(qweryr, call) {
-    const API_KEY = process.env.REACT_APP_API_KEY;
-    const API_LINK = process.env.REACT_APP_API_LINK;
-    let API_CALL = call;
-    return `${API_LINK}apikey=${API_KEY}&type=movie${API_CALL}=${qweryr}`;
-  }
   async changeMovie(qweryr) {
     this.setState({
       Loading: true
